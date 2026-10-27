@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="admin">
+  <header class="site-header">
+    <span class="site-name">Admin</span>
+    <button id="logout" class="small" hidden>Log out</button>
+  </header>
+
+  <main class="admin-main">
+    <section id="login-panel" class="panel" hidden>
+      <h2>Log in</h2>
+      <form id="login-form">
+        <input type="password" name="password" placeholder="Admin password" required>
+        <button type="submit">Log in</button>
+        <p id="login-error" class="message error"></p>
+      </form>
+    </section>
+
+    <div id="admin-panel" hidden>
+      <section class="panel">
+        <h2>Site name</h2>
+        <input id="site-name-input" maxlength="120">
+      </section>
+
+      <section class="panel">
+        <h2>Front page: images and words</h2>
+        <p class="hint">Each image is followed by its own words section. Add as many images as you need.</p>
+        <div id="block-list"></div>
+
+        <h3>Add an image</h3>
+        <input type="file" id="new-image" accept="image/png,image/jpeg,image/webp,image/gif">
+        <label>Words under this image
+          <textarea id="new-text" rows="3" maxlength="5000"></textarea>
+        </label>
+        <div class="row">
+          <button id="add-block" type="button">Add image</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Order form</h2>
+        <label>Form title <input id="of-title" maxlength="120"></label>
+        <label>Button label <input id="of-button" maxlength="60"></label>
+        <label>Products (one per line)
+          <textarea id="of-products" rows="4"></textarea>
+        </label>
+        <label>Message shown after an order is sent
+          <textarea id="of-success" rows="2" maxlength="300"></textarea>
+        </label>
+      </section>
+
+      <section class="panel">
+        <h2>Words after the order form</h2>
+        <textarea id="closing" rows="5" maxlength="5000"></textarea>
+      </section>
+
+      <section class="panel">
+        <h2>Footer</h2>
+        <label>Footer words <textarea id="footer-text" rows="3" maxlength="1000"></textarea></label>
+        <label>Contact details <textarea id="footer-contact" rows="2" maxlength="1000"></textarea></label>
+      </section>
+
+      <div class="savebar">
+        <button id="save" type="button">Save changes</button>
+        <span id="save-status" class="message"></span>
+      </div>
+
+      <section class="panel">
+        <h2>Orders</h2>
+        <div id="orders"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="/admin.js"></script>
+</body>
+</html>
